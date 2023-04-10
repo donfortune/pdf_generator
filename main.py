@@ -13,8 +13,14 @@ for index, rows in data.iterrows():
     pdf.set_text_color(100, 100, 100)
     pdf.set_font(family='Times', style='B', size=12)
     pdf.cell(w=0, h=12, txt=rows['Topic'], align='L', ln=1, border=0)
-    pdf.line(10, 20, 200, 20)
+    #added writing lines
+    for i in range(20, 298, 10):
+        pdf.line(10, i, 200, i)
+
+
+
     #adding footer
+
     pdf.ln(260)
     pdf.set_font(family='Times', style='I', size=8)
     pdf.set_text_color(100, 100, 100)
@@ -29,6 +35,10 @@ for index, rows in data.iterrows():
         pdf.set_font(family='Times', style='I', size=8)
         pdf.set_text_color(100, 100, 100)
         pdf.cell(w=0, h=10, txt=rows['Topic'], align='R', ln=1, border=0)
+        #added writing lines
+        for i in range(20, 298, 10):
+            pdf.line(10, i, 200, i)
+
 
 
 pdf.output('output.pdf')
